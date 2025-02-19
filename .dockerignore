@@ -1,0 +1,29 @@
+# Version control
+.git
+.gitignore
+
+# Node.js
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build outputs
+src/c/hello
+
+# IDE and editor files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Docker
+.dockerignore
+Dockerfile
+
+# GitHub
+.github
+
+# Misc
+*.md
+.DS_Store

@@ -1,0 +1,26 @@
+# Stage 1: Build C program
+FROM gcc:12-slim as c-builder
+WORKDIR /build
+COPY src/c .
+RUN make
+
+# Stage 2: Setup Node environment
+FROM node:20-slim as node-builder
+WORKDIR /app
+COPY src/server/package*.json ./
+RUN npm install
+COPY src/server .
+
+# Stage 3: Production image
+FROM node:20-slim
+WORKDIR /app
+COPY --from=node-builder /app ./
+COPY --from=c-builder /build/hello ./c/hello
+
+# Create non-root user for security
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN chown -R appuser:appuser /app
+USER appuser
+
+EXPOSE 3000
+CMD ["npm", "start"]
