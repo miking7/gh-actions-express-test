@@ -1,18 +1,18 @@
 # Stage 1: Build C program
-FROM gcc:12-slim as c-builder
+FROM gcc:14-bookworm as c-builder
 WORKDIR /build
 COPY src/c .
 RUN make
 
 # Stage 2: Setup Node environment
-FROM node:20-slim as node-builder
+FROM node:22-slim as node-builder
 WORKDIR /app
 COPY src/server/package*.json ./
 RUN npm install
 COPY src/server .
 
 # Stage 3: Production image
-FROM node:20-slim
+FROM node:22-slim
 WORKDIR /app
 COPY --from=node-builder /app ./
 COPY --from=c-builder /build/hello ./c/hello
