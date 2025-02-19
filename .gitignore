@@ -9,6 +9,7 @@ npm-debug.log*
 # C build outputs
 *.o
 *.out
+src/c/dist/
 
 # IDEs and editors
 .vscode/
@@ -25,4 +26,3 @@ docker-compose.override.yml
 # Build outputs
 dist/
 build/
-

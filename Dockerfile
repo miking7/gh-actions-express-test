@@ -15,7 +15,7 @@ COPY src/server .
 FROM node:22-slim
 WORKDIR /app
 COPY --from=node-builder /app ./
-COPY --from=c-builder /build/hello ./c/hello
+COPY --from=c-builder /build/dist/hello ./dist/hello
 
 # Create non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser

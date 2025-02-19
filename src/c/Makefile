@@ -1,10 +1,11 @@
 CC=gcc
 CFLAGS=-Wall -Wextra
 
-all: hello
+all: dist/hello
 
-hello: hello.c
-	$(CC) $(CFLAGS) -o hello hello.c
+dist/hello: hello.c
+	mkdir -p dist
+	$(CC) $(CFLAGS) -o dist/hello hello.c
 
 clean:
-	rm -f hello
+	rm -rf dist
