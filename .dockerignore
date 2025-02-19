@@ -24,6 +24,9 @@ Dockerfile
 # GitHub
 .github
 
+# Documentation
+*.md
+
 # Misc
 *.md
 .DS_Store

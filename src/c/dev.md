@@ -43,3 +43,9 @@ docker pull ghcr.io/[your-username]/[repo-name]:latest
 docker run -p 3000:3000 ghcr.io/[your-username]/[repo-name]:latest
 The application will be accessible at http://localhost:3000 and will return the output from the C program.
 
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Update my .gitignore with sensible defaults
+
++ manual edits
+
