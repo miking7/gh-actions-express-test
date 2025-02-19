@@ -49,3 +49,46 @@ Update my .gitignore with sensible defaults
 
 + manual edits
 
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+??? THESE INSTRUCTIONS DIDN'T WORK ???
+
+To enable automatic deployment to GitHub Container Registry (GHCR) when pushing to main, you'll need to complete these steps in GitHub:
+
+Enable Improved Container Support:
+
+Go to your repository settings
+Navigate to "Features"
+Ensure "Improved container support" is enabled
+Configure Package Access:
+
+Go to repository settings
+Navigate to "Actions" → "General"
+Under "Workflow permissions":
+Enable "Read and write permissions"
+Check "Allow GitHub Actions to create and approve pull requests"
+Configure Package Settings:
+
+Go to your repository's "Packages" settings
+For the container package:
+Set visibility (typically "Public" for open-source projects)
+Configure package access permissions
+Create Personal Access Token (PAT) if needed:
+
+Only needed if you want to manually push/pull images
+Go to GitHub Settings → Developer settings → Personal access tokens
+Generate new token with:
+read:packages
+write:packages
+delete:packages
+The workflow file we created (.github/workflows/docker.yml) is already configured to:
+
+Use GHCR as the registry
+Use the repository name for the image
+Authenticate using GITHUB_TOKEN
+Build and push on main branch pushes
+The resulting image will be available at:
+ghcr.io/[your-username]/[repository-name]:latest
+
+Would you like me to explain any of these steps in more detail?
