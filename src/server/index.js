@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  const helloPath = path.join(__dirname, '..', 'c', 'dist', 'hello');
+  const helloPath = path.join(__dirname, '..', '..', 'dist', 'hello');
   
   execFile(helloPath, (error, stdout, stderr) => {
     if (error) {

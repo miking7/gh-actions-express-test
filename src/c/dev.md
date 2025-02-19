@@ -40,7 +40,7 @@ The workflow will automatically build and push multi-arch Docker images to GHCR
 The Docker image can be pulled and run with:
 
 ghcr.io/miking7/gh-actions-express-test
-docker run -p 3000:3000 ghcr.io/miking7/gh-actions-express-test
+docker run --rm --pull always -p 3000:3000 ghcr.io/miking7/gh-actions-express-test
 
 The application will be accessible at http://localhost:3000 and will return the output from the C program.
 
